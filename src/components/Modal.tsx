@@ -21,7 +21,6 @@ const Modal: React.FC<ModalProps> = ({ country, onClose }) => {
       <div className="modal-content" onClick={handleModalClick}>
         <p className="name">Thank you Konzek you clicked on</p>
         <h2 className="name"> {country.name}</h2>
-        <p className="name">Please Employ me</p>
       </div>
     </div>
   );

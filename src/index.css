@@ -92,12 +92,10 @@ ul {
   align-items: center;
 }
 .button {
-  background-color: green;
   outline: none;
   padding: 10px;
   color: white;
   border-radius: 8px;
-  cursor: pointer;
   border: 0;
 }
 

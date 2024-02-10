@@ -14,9 +14,9 @@ interface CountryListProps {
 const CountryList: React.FC<CountryListProps> = ({ countries }) => {
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
-  const [page, setPage] = useState<number>(1); 
-  const [pageSize] = useState<number>(10); 
-  const [showModal, setShowModal] = useState<boolean>(false); 
+  const [page, setPage] = useState<number>(1);
+  const [pageSize] = useState<number>(10);
+  const [showModal, setShowModal] = useState<boolean>(false);
   const colors: string[] = ["lightblue", "lightgreen", "lightcoral"];
 
   const handleSelect = (country: Country) => {
@@ -62,15 +62,33 @@ const CountryList: React.FC<CountryListProps> = ({ countries }) => {
           </li>
         ))}
       </ul>
+      
       <div className="pagination">
-        <button className="button" onClick={prevPage} disabled={page === 1}>
+        <button
+          className="button"
+          onClick={prevPage}
+          disabled={page === 1}
+          style={{
+            backgroundColor: `${startIndex <= 1 ? "grey" : "green"}`,
+            cursor: `${startIndex <= 1 ? "" : "pointer"}`,
+          }}
+        >
           Previous
         </button>
-        <span> Page {page} </span>
+        <span>
+          {" "}
+          Page {page} of {countries.length / countriesForPage.length}
+        </span>
         <button
           className="button"
           onClick={nextPage}
           disabled={endIndex >= countries.length}
+          style={{
+            backgroundColor: `${
+              endIndex >= countries.length ? "grey" : "green"
+            }`,
+            cursor: `${endIndex >= countries.length ? "" : "pointer"}`,
+          }}
         >
           Next
         </button>

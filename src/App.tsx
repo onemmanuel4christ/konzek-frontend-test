@@ -34,7 +34,11 @@ const App = () => {
       <Header />
       <div className="app">
         <FilterInput onChange={setFilter} />
-        <CountryList countries={filteredCountries} />
+        {filteredCountries.length === 0 ? (
+          <p>No result found</p>
+        ) : (
+          <CountryList countries={filteredCountries} />
+        )}
       </div>
     </div>
   );
